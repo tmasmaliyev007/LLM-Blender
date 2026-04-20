@@ -25,7 +25,8 @@ from ..pair_ranker.config import RankerConfig
 from ..gen_fuser.config import GenFuserConfig
 from .config import BlenderConfig
 from huggingface_hub import snapshot_download
-from transformers.utils.hub import TRANSFORMERS_CACHE
+from huggingface_hub import constants as hf_constants
+TRANSFORMERS_CACHE = getattr(hf_constants, "HF_HUB_CACHE", None)
 from tqdm import tqdm
 
 # detect if vllm is installed
